@@ -10,6 +10,8 @@ var services = builder.Services;
 var env = builder.Environment;
 var config = builder.Configuration;
 
+
+
 {
     string connectionString = config["Db:ConnectionString"];
     services.AddDbContext<ExpenseTrackerDbContext>(o =>
