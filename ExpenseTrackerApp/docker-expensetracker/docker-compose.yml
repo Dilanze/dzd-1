@@ -1,0 +1,27 @@
+version: '3'
+
+volumes:
+  virtual_postgres:
+
+
+services:
+  postgres:
+    image: expensetracker-postgres
+    build:
+      context: .
+      dockerfile: ./postgres/dockerfile
+    restart: always
+    environment:
+      - POSTGRES_USER=developer
+      - POSTGRES_PASSWORD=p@ssw0rd
+      - PGDATA="/data/postgres"
+      - TZ="Europe/Istanbul"
+    volumes:
+      - virtual_postgres:/data/postgres
+      - ./create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_preload_libraries=pg_stat_statements"
+    ports:
+      - "5432:5432"

@@ -1,0 +1,1 @@
+CREATE DATABASE expensetracker ENCODING='UTF-8' LC_COLLATE = 'tr_TR.UTF-8' LC_CTYPE='tr_TR.UTF-8' TEMPLATE template0;
