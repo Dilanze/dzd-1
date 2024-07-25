@@ -9,7 +9,7 @@ namespace ExpenseTrackerApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomerController : BaseController
+    public class CustomerController : ControllerBase
     {
         private readonly ExpenseTrackerDbContext _dbContext;
 
@@ -105,80 +105,6 @@ namespace ExpenseTrackerApp.Controllers
     }
 }
 
-
-// using ExpenseTrackerApp.Data;
-// using ExpenseTrackerApp.Dto;
-// using ExpenseTrackerApp.Models;
-// using Microsoft.AspNetCore.Mvc;
-
-// namespace ExpenseTrackerApp.Controllers;
-
-// public class CustomerController : BaseController
-// {
-//     readonly ExpenseTrackerDbContext dbContext;
-
-//     public CustomerController(ExpenseTrackerDbContext dbContext)
-//     {
-//         this.dbContext = dbContext;
-//     }
-
-
-//     public IActionResult Index()
-//     {
-//         var result = dbContext.Customer.OrderBy(p => p.Fullname).Select(p => new CustomerModel
-//         {
-//             Id = p.Id,
-//             IdentificationNumber =p.IdentificationNumber,
-//             Fullname = p.Fullname
-
-
-//         }).ToList();
-
-//         return View(result);
-//     }
-
-//     public IActionResult Edit(int id)
-//     {
-//         var result = dbContext.Customer.Where(p => p.Id == id).Select(p => new CustomerModel
-//         { Id = p.Id,
-//             IdentificationNumber =p.IdentificationNumber,
-//             Fullname = p.Fullname
-//         }).FirstOrDefault();
-
-//         ViewBag.Categories = dbContext.Customer.OrderBy(P => P.Fullname).ToList();
-
-//         return View(result);
-//     }
-
-//     [HttpPost]
-//     public IActionResult CreateOrUpdate(CustomerModel model)
-//     {
-
-//         var entity = new Customer();
-//         if (model.Id == 0)
-//         {
-//             dbContext.Customer.Add(entity);
-//         }
-//         else
-//         {
-//             entity = dbContext.Customer.FirstOrDefault(p => p.Id == model.Id);
-//         }
-//         entity.IdentificationNumber = model.IdentificationNumber;
-//         entity.Fullname = model.Fullname;
-
-
-//         dbContext.SaveChanges();
-
-//         return RedirectToAction("Index");
-//     }
-//     public IActionResult Delete(int id)
-//     {
-//         var entity = dbContext.Customer.FirstOrDefault(p => p.Id == id);
-//         dbContext.Customer.Remove(entity);
-//         dbContext.SaveChanges();
-//         return RedirectToAction("Index");
-//     }
-// }
 
 
 

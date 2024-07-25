@@ -15,7 +15,7 @@ namespace ExpenseTrackerApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountController : BaseController
+    public class AccountController : ControllerBase
     {
         private readonly ExpenseTrackerDbContext _dbContext;
         private readonly IConfiguration _config;

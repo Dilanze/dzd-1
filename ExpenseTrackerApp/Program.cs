@@ -3,6 +3,7 @@ using ExpenseTrackerApp.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -57,7 +58,15 @@ var config = builder.Configuration;
     services.AddAuthorization();
     services.AddControllers();
     services.AddEndpointsApiExplorer();
-    services.AddSwaggerGen();
+    services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new OpenApiInfo
+        {
+            Version = "v1",
+            Title = "ExpenseTracker API",
+            Description = "A simple example ASP.NET Core Web API"
+        });
+    });
 
 }
 
@@ -68,7 +77,11 @@ var config = builder.Configuration;
     if (app.Environment.IsDevelopment())
     {
         app.UseSwagger();
-        app.UseSwaggerUI();
+        app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ExpenseTracker API v1");
+        c.RoutePrefix = string.Empty;
+    });
     }
 
     app.UseHttpsRedirection();

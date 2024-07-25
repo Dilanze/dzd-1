@@ -15,7 +15,3 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = /Users/dilan/Desktop/ExpenseTrackerApp/ExpenseTrackerApp
 build_property._RazorSourceGeneratorDebug = 
-
-[/Users/dilan/Desktop/ExpenseTrackerApp/ExpenseTrackerApp/Views/Customer/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ3VzdG9tZXIvSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 

@@ -9,7 +9,7 @@ namespace ExpenseTrackerApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ExpenseController : BaseController
+    public class ExpenseController : ControllerBase
     {
         private readonly ExpenseTrackerDbContext _dbContext;
 
